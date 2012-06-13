@@ -802,10 +802,10 @@ class Party(HighriseObject):
         return HighriseObject.__new__(cls, **kwargs)
     
     @classmethod
-    def all(cls):
+    def all(cls, n=0):
         """Get all parties"""
 
-        return cls._list('%s.xml' % cls.plural, cls.singular)
+        return cls._list('%s.xml?n=%d' % (cls.plural, n), cls.singular)
 
     @classmethod
     def filter(cls, **kwargs):
